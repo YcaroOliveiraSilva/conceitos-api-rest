@@ -1,4 +1,5 @@
-Os códigos de status das respostas HTTP indicam se uma requisição HTTP foi corretamente concluída. As respostas são agrupadas em cinco classes:
+Os códigos de status das respostas HTTP indicam se uma requisição HTTP foi corretamente concluída.
+As respostas são agrupadas em cinco classes:
 
 Respostas de informação (100-199),
 Respostas de sucesso (200-299),
@@ -10,41 +11,72 @@ Erros do servidor (500-599).
 
 Respostas informativas
 100 Continue
-Essa resposta provisória indica que tudo ocorreu bem até agora e que o cliente deve continuar com a requisição ou ignorar se já concluiu o que gostaria.
+Essa resposta provisória indica que tudo ocorreu bem até agora e que o cliente deve continuar
+com a requisição ou ignorar se já concluiu o que gostaria.
+
 101 Switching Protocol
-Esse código é enviado em resposta a um cabeçalho de solicitação Upgrade pelo cliente, e indica o protocolo a que o servidor está alternando.
+Esse código é enviado em resposta a um cabeçalho de solicitação Upgrade pelo cliente, 
+e indica o protocolo a que o servidor está alternando.
+
 102 Processing (WebDAV)
-Este código indica que o servidor recebeu e está processando a requisição, mas nenhuma resposta está disponível ainda.
+Este código indica que o servidor recebeu e está processando a requisição,
+mas nenhuma resposta está disponível ainda.
+
 103 Early Hints
-Este código tem principalmente o objetivo de ser utilizado com o cabeçalho Link, indicando que o agente deve iniciar a pré-carregar recursos enquanto o servidor prepara uma resposta.
+Este código tem principalmente o objetivo de ser utilizado com o cabeçalho Link, 
+indicando que o agente deve iniciar a pré-carregar recursos enquanto o servidor prepara uma resposta.
+
 Respostas de sucesso
+
 GET: O recurso foi buscado e transmitido no corpo da mensagem.
 HEAD: Os cabeçalhos da entidade estão no corpo da mensagem.
 PUT ou POST: O recurso descrevendo o resultado da ação é transmitido no corpo da mensagem.
 TRACE: O corpo da mensagem contém a mensagem de requisição recebida pelo servidor.
+
 200 OK
 Estas requisição foi bem sucedida. O significado do sucesso varia de acordo com o método HTTP:
+
 201 Created
-A requisição foi bem sucedida e um novo recurso foi criado como resultado. Esta é uma tipica resposta enviada após uma requisição POST.
+A requisição foi bem sucedida e um novo recurso foi criado como resultado. 
+Esta é uma tipica resposta enviada após uma requisição POST.
+
 202 Accepted
-A requisição foi recebida mas nenhuma ação foi tomada sobre ela. Isto é uma requisição não-comprometedora, o que significa que não há nenhuma maneira no HTTP para enviar uma resposta assíncrona indicando o resultado do processamento da solicitação. Isto é indicado para casos onde outro processo ou servidor lida com a requisição, ou para processamento em lote.
+A requisição foi recebida mas nenhuma ação foi tomada sobre ela. 
+Isto é uma requisição não-comprometedora, o que significa que não há nenhuma maneira 
+no HTTP para enviar uma resposta assíncrona indicando o resultado do processamento da solicitação. 
+Isto é indicado para casos onde outro processo ou servidor lida com a requisição, ou para processamento em lote.
+
 203 Non-Authoritative Information
-Esse código de resposta significa que o conjunto de meta-informações retornadas não é o conjunto exato disponível no servidor de origem, mas coletado de uma cópia local ou de terceiros. Exceto essa condição, a resposta de 200 OK deve ser preferida em vez dessa resposta.
+Esse código de resposta significa que o conjunto de meta-informações retornadas não é o conjunto exato disponível no servidor de origem,
+mas coletado de uma cópia local ou de terceiros. Exceto essa condição, a resposta de 200 OK deve ser preferida em vez dessa resposta.
+
 204 No Content
-Não há conteúdo para enviar para esta solicitação, mas os cabeçalhos podem ser úteis. O user-agent pode atualizar seus cabeçalhos em cache para este recurso com os novos.
+Não há conteúdo para enviar para esta solicitação, mas os cabeçalhos podem ser úteis. 
+O user-agent pode atualizar seus cabeçalhos em cache para este recurso com os novos.
+
 205 Reset Content
-Esta requisição é enviada após realizanda a solicitação para informar ao user agent redefinir a visualização do documento que enviou essa solicitação.
+Esta requisição é enviada após realizanda a solicitação para informar ao user agent redefinir a 
+visualização do documento que enviou essa solicitação.
+
 206 Partial Content
 Esta resposta é usada por causa do cabeçalho de intervalo enviado pelo cliente para separar o download em vários fluxos.
+
 207 Multi-Status (WebDAV)
 Uma resposta Multi-Status transmite informações sobre vários recursos em situações em que vários códigos de status podem ser apropriados.
+
 208 Multi-Status (WebDAV)
-Usado dentro de um elemento de resposta <dav:propstat> para evitar enumerar os membros internos de várias ligações à mesma coleção repetidamente.
+Usado dentro de um elemento de resposta <dav:propstat> para evitar enumerar os membros internos
+de várias ligações à mesma coleção repetidamente.
+
 226 IM Used (HTTP Delta encoding)
-O servidor cumpriu uma solicitação GET para o recurso e a resposta é uma representação do resultado de uma ou mais manipulações de instância aplicadas à instância atual.
+O servidor cumpriu uma solicitação GET para o recurso e a resposta é uma representação do 
+resultado de uma ou mais manipulações de instância aplicadas à instância atual.
 Mensagens de redirecionamento
+
 300 Multiple Choice
-A requisição tem mais de uma resposta possível. User-agent ou o user deve escolher uma delas. Não há maneira padrão para escolher uma das respostas.
+A requisição tem mais de uma resposta possível. User-agent ou o user deve escolher uma delas. 
+Não há maneira padrão para escolher uma das respostas.
+
 301 Moved Permanently
 Esse código de resposta significa que a URI do recurso requerido mudou. Provavelmente, a nova URI será especificada na resposta.
 302 Found
